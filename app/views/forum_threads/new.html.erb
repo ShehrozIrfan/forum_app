@@ -1,0 +1,27 @@
+<div>
+  <h2>Create New Forum</h2>
+  <hr />
+
+  <%= form_with(model: @forum_thread) do |f| %>
+    <% if @forum_thread.errors.any? %>
+      <%= @forum_thread.errors.full_messages.each do |msg| %>
+        <%= msg %>
+      <% end %>
+    <% end %>
+
+    <div>
+      <%= f.label :subject %>
+      <%= f.text_field :subject, placeholder: "Enter subject" %>
+    </div>
+
+    <div>
+      <%= f.fields_for :forum_posts do |p| %>
+        <%= p.text_area :body, placeholder: "Add a comment", rows: "10", column: "5" %>
+      <% end %>
+    </div>
+
+    <div>
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>
