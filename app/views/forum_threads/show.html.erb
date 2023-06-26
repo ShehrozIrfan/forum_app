@@ -1,0 +1,6 @@
+<h2><%= @forum_thread.subject %></h2>
+<hr/>
+<h4>Forum Posts</h4>
+<% @forum_thread.forum_posts.each do |p| %>
+  <p><%= p.body %></p>
+<% end %>
